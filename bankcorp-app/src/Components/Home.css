@@ -1,0 +1,21 @@
+ .hero-section {
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80")
+        center/cover no-repeat;
+      color: #fff;
+      padding: 110px 0;
+    }
+
+    .feature-card {
+      transition: 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0,0,0,.12);
+    }
+
+    footer {
+      background: #0f172a;
+      color: #d1d5db;
+    }

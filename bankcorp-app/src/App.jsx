@@ -7,7 +7,7 @@ import Header from './Header'
 import Sidebar from './Components/Sidebar'
 import Home from './Components/Home'
 import Enquiry from './Components/Enquiry'
-import EmiCalculator from './Components/Emi-Calculator'
+import EmiCalculator from './Components/EmiCalculator'
 import Login from './Components/Login'
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
         <Route path='enquiry' element={<Enquiry/>}></Route>
         <Route path='emicheck' element={<EmiCalculator/>}></Route>
         <Route path='login' element={<Login/>}></Route>
+        
       </Routes>
       </BrowserRouter>
     </>
