@@ -21,6 +21,10 @@ function Header() {
         <li className="nav-item">
            <Link className="nav-link" to={'enquiry'}>Enquiry</Link>
         </li>
+        <li className="nav-item">
+           <Link className="nav-link" to={'loanapplication'}>LoanApplication</Link>
+        </li>
+        
          <li className="nav-item">
            <Link className="nav-link" to={'emicheck'}>EMI-Check</Link>
         </li>

@@ -13,6 +13,7 @@ import Home from './Templates/Home'
 import Enquiry from './Templates/Enquiry'
 import Login from './Templates/Login'
 import Dashboard from './Includes/Dashboard'
+import { LoanApplication } from './Components/LoanAppliction'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -31,6 +32,7 @@ function App() {
         <Route path='dashboard/*' element={<Dashboard/>}></Route>
         <Route path='contact' element={<Contact></Contact>}></Route>
         <Route path='about'element={<About/>}></Route>
+        <Route path='loanapplication' element={<LoanApplication/>}></Route>
         </Routes>
         
         <Footer></Footer>
