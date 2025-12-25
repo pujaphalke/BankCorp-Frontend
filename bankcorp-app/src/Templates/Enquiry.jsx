@@ -17,9 +17,9 @@ function Enquiry() {
 
   return (
     <>
-    <section className="vh-100" style={{backgroundColor: '#824552ff'}}>
-  <div className="container py-5 h-100">
-    <div className="row d-flex justify-content-center align-items-center h-100">
+    <section className="min-vh-100" style={{backgroundColor: '#ced4da'}}>
+  <div className="container  py-5 " >
+    <div className="row d-flex justify-content-center align-items-center h-50">
       <div className="col col-xl-10 " >
         <div className="card h-50" style={{borderradius: '1rem'}}>
           <div className="row g-0">
@@ -43,7 +43,7 @@ function Enquiry() {
                     <input type="text" id="fname"{...register("firstName")} className="form-control form-control" />
                    </div>
                    <div data-mdb-input-init className="form-outline mb-2">
-                    <label className="form-label" htmlFor="lname">Last Name Name</label>
+                    <label className="form-label" htmlFor="lname">Last Name</label>
                     <input type="text" id="lname" {...register("lastName")} className="form-control form-control" />
                     </div>
                   
