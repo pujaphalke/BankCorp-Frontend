@@ -82,12 +82,12 @@ function Home() {
 
 
   
-  <footer className="py-4 mt-4">
+  {/* <footer className="py-4 mt-4">
     <div className="container text-center">
       <p className="mb-1">© 2025 HomeLoan App — All Rights Reserved</p>
       <small>Terms & Conditions | Privacy Policy</small>
     </div>
-  </footer>
+  </footer> */}
 
 
 

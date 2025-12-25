@@ -17,18 +17,18 @@ function Enquiry() {
 
   return (
     <>
-    <section className="vh-100" style={{backgroundColor: '#f094a8ff'}}>
+    <section className="vh-100" style={{backgroundColor: '#824552ff'}}>
   <div className="container py-5 h-100">
     <div className="row d-flex justify-content-center align-items-center h-100">
-      <div className="col col-xl-10">
-        <div className="card" style={{borderradius: '1rem'}}>
+      <div className="col col-xl-10 " >
+        <div className="card h-50" style={{borderradius: '1rem'}}>
           <div className="row g-0">
             <div className="col-md-6 col-lg-5 d-none d-md-block">
               <img src={img}
                 alt="home" className="img-fluid" style={{borderRadius: '1rem 0 0 1rem',height:'750px',}} />
             </div>
             <div className="col-md-6 col-lg-7 d-flex align-items-center">
-              <div className="card-body p-4 p-lg-5 text-black">
+              <div className="card-body p-4 p-lg-5 text-black fw-semibold">
 
                 <form onSubmit={handleSubmit(EnquiryDetails)}>
 
@@ -39,18 +39,20 @@ function Enquiry() {
 
                   
                   <div data-mdb-input-init className="form-outline mb-2">
+                     <label className="form-label" htmlFor="fname">First Name</label>
                     <input type="text" id="fname"{...register("firstName")} className="form-control form-control" />
-                    <label className="form-label" htmlFor="fname">First Name</label>
-                  </div>
+                   </div>
                    <div data-mdb-input-init className="form-outline mb-2">
-                    <input type="text" id="lname" {...register("lastName")} className="form-control form-control" />
                     <label className="form-label" htmlFor="lname">Last Name Name</label>
-                  </div>
+                    <input type="text" id="lname" {...register("lastName")} className="form-control form-control" />
+                    </div>
+                  
 
                   <div data-mdb-input-init className="form-outline mb-2">
-                    <input type="text" id="age"{...register("age")} className="form-control form-control" />
                     <label className="form-label" htmlFor="age">Age</label>
-                  </div>
+                    <input type="text" id="age"{...register("age")} className="form-control form-control" />
+                    </div> 
+                 
 
                   <div data-mdb-input-init className="form-outline mb-2">
                     <label className="form-label me-5" htmlFor="gender">Gender</label>
@@ -64,29 +66,34 @@ function Enquiry() {
                    </div>
 
                    <div data-mdb-input-init className="form-outline mb-2">
-                    <input type="email" id="mail"{...register("email")} className="form-control form-control" placeholder='abc@gmail.com'/>
                     <label className="form-label" htmlFor="mail">Email</label>
-                  </div>
+                    <input type="email" id="mail"{...register("email")} className="form-control form-control" placeholder='abc@gmail.com'/>
+                     </div>
+                 
 
                   <div data-mdb-input-init className="form-outline mb-2">
+                     <label className="form-label" htmlFor="mno">Mobile Number</label>
                     <input type="text" id="mno"{...register("mobileNo")} className="form-control form-control" />
-                    <label className="form-label" htmlFor="mno">Mobile Number</label>
-                  </div>
+                   </div> 
+                 
 
                   <div data-mdb-input-init className="form-outline mb-2">
-                    <input type="text" id="pno"{...register("pancardNo")} className="form-control form-control" />
                     <label className="form-label" htmlFor="pno">PAN Card Number</label>
-                  </div>
+                    <input type="text" id="pno"{...register("pancardNo")} className="form-control form-control" />
+                  </div>  
+                  
                    
                    <div data-mdb-input-init className="form-outline mb-2">
-                    <input type="number" id="tenure"{...register("loanTenure")} className="form-control form-control" />
                     <label className="form-label" htmlFor="tenure">Loan Tenure</label>
-                  </div>
+                    <input type="number" id="tenure"{...register("loanTenure")} className="form-control form-control" />
+                  </div>  
+                  
                   
                   <div data-mdb-input-init className="form-outline mb-2">
-                    <input type="number" id="amount"{...register("loanRequired")} className="form-control form-control" />
                     <label className="form-label" htmlFor="amount">Loan Required</label>
-                  </div>
+                    <input type="number" id="amount"{...register("loanRequired")} className="form-control form-control" />
+                    </div> 
+                 
 
 
                   <div className="pt-1 mb-4">
