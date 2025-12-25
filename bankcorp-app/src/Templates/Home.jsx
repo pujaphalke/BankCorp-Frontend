@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Components/Home.css'
+import '../Templates/Home.css'
 function Home() {
 
   return (
