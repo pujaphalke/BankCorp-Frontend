@@ -10,7 +10,7 @@ import Contact from './Footer-Components/Contact'
 import About from './Footer-Components/About'
 import EmiCalculator from './Templates/EmiCalculator'
 import Home from './Templates/Home'
-import Enquiry from './Templates/Enquiry'
+// import Enquiry from './Templates/Enquiry'
 import Login from './Templates/Login'
 import Dashboard from './Includes/Dashboard'
 import { LoanApplication } from './Components/LoanAppliction'
@@ -26,7 +26,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='home' element={<Home/>}></Route>
-        <Route path='enquiry' element={<Enquiry/>}></Route>
+        {/* <Route path='enquiry' element={<Enquiry/>}></Route> */}
         <Route path='emicheck' element={<EmiCalculator/>}></Route>
         <Route path='login' element={<Login></Login>}></Route>
         <Route path='dashboard/*' element={<Dashboard/>}></Route>

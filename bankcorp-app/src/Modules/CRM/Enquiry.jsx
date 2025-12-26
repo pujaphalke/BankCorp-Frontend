@@ -1,5 +1,5 @@
 import React from 'react'
-import img from '../assets/images/home1.jpg'
+import img from '/home1.jpg'
 import { useForm } from 'react-hook-form'
 import axios from 'axios';
 
@@ -17,17 +17,21 @@ function Enquiry() {
 
   return (
     <>
-    <section className="min-vh-100" style={{backgroundColor: '#ced4da'}}>
-  <div className="container  py-5 " >
-    <div className="row d-flex justify-content-center align-items-center h-50">
+    {/* <section className="min-vh-100" style={{backgroundColor: '#ced4da'}}> */}
+  <div className="container  py-2 " >
+    <div className="row d-flex justify-content-center align-items-center">
       <div className="col col-xl-10 " >
-        <div className="card h-50" style={{borderradius: '1rem'}}>
+        <div className="card shadow-lg rounded-4 bg-light">
           <div className="row g-0">
+            {/* Image */}
             <div className="col-md-6 col-lg-5 d-none d-md-block">
               <img src={img}
-                alt="home" className="img-fluid" style={{borderRadius: '1rem 0 0 1rem',height:'750px',}} />
+                alt="home" 
+                // className="img-fluid" style={{borderRadius: '1rem 0 0 1rem',height:'750px',}} 
+                 className="img-fluid w-100 rounded-start"/>
             </div>
-            <div className="col-md-6 col-lg-7 d-flex align-items-center">
+            {/* Form */}
+            <div className="col-md-6 col-lg-7 d-flex ">
               <div className="card-body p-4 p-lg-5 text-black fw-semibold">
 
                 <form onSubmit={handleSubmit(EnquiryDetails)}>
@@ -110,7 +114,7 @@ function Enquiry() {
       </div>
     </div>
   </div>
-</section>
+{/* </section> */}
     </>
   )
 }
