@@ -34,10 +34,8 @@ export function LoanApplication()
         mobileNo:data.mobileNo,
         pancardNo:data.pancardNo,
         customerGender:data.customerGender,
-        
-    
-    loanTenure:data.loanTenure,
-    loanRequired:data.loanRequired,
+        loanTenure:data.loanTenure,
+        loanRequired:data.loanRequired,
         
    
     customerAddress: {
@@ -89,10 +87,7 @@ export function LoanApplication()
         guarantorLocalAddress:data.guarantorLocalAddress,
         guarantorPermanentAddress:data.guarantorPermanentAddress
     }
-
-
-
-    };
+};
     const  formData = new FormData();
     formData.append('loanApplicationData',JSON.stringify(customerData));
     axios.post("http://localhost:9093/application/post",formData);
@@ -112,7 +107,7 @@ export function LoanApplication()
           className="progress-bar"
           role="progressbar"
           style={{ width: `${((step + 1) / steps.length) * 100}%` }}
-        />
+         />
       </div>
     </div>
   );
@@ -130,18 +125,7 @@ export function LoanApplication()
     </div>
   );
 
-  const Address = ({ prefix }) => (
-    <div className="row">
-      <div className="col-md-6"><Field label="House Number" name={`${prefix}.houseNumber`} /></div>
-      <div className="col-md-6"><Field label="Street Name" name={`${prefix}.streetName`} /></div>
-      <div className="col-md-6"><Field label="Area" name={`${prefix}.areaName`} /></div>
-      <div className="col-md-6"><Field label="City" name={`${prefix}.cityName`} /></div>
-      <div className="col-md-6"><Field label="District" name={`${prefix}.district`} /></div>
-      <div className="col-md-6"><Field label="State" name={`${prefix}.state`} /></div>
-      <div className="col-md-6"><Field label="Pincode" name={`${prefix}.pincode`} type="text" inputMode="numeric" /></div>
-    </div>
-  );
-
+ 
   const Personal = () => (
     <div className="row">
       <div className="col-md-6"><Field label="First Name" name="firstName" /></div>
@@ -161,8 +145,22 @@ export function LoanApplication()
     </div>
   );
 
+   const Address = ({ prefix }) => (
+    <div className="row">
+      <div className="col-md-6"><Field label="House Number" name={`${prefix}.houseNumber`} /></div>
+      <div className="col-md-6"><Field label="Street Name" name={`${prefix}.streetName`} /></div>
+      <div className="col-md-6"><Field label="Area" name={`${prefix}.areaName`} /></div>
+      <div className="col-md-6"><Field label="City" name={`${prefix}.cityName`} /></div>
+      <div className="col-md-6"><Field label="District" name={`${prefix}.district`} /></div>
+      <div className="col-md-6"><Field label="State" name={`${prefix}.state`} /></div>
+      <div className="col-md-6"><Field label="Pincode" name={`${prefix}.pincode`} type="text" inputMode="numeric" /></div>
+    </div>
+  );
+
   const LocalAddress = () => <Address prefix="customerAddress.localAddress" />;
   const PermanentAddress = () => <Address prefix="customerAddress.permanentAddress" />;
+
+  
 
   const Dependant = () => (
     <div className="row">
@@ -212,14 +210,9 @@ export function LoanApplication()
                 {renderStep()}
 
                 <div className="d-flex justify-content-between mt-3">
-                  <button
-                    type="button"
-                    className="btn btn-outline-secondary"
+                  <button type="button" className="btn btn-secondary"
                     onClick={back}
-                    disabled={step === 0}
-                  >
-                    Back
-                  </button>
+                    disabled={step === 0} > Back </button>
 
                   {step < steps.length - 1 ? (
                     <button type="button" className="btn btn-primary" onClick={next}>Next</button>
