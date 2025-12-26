@@ -30,9 +30,9 @@ function ViewEnquiry() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2>View Enquiries</h2>
+     
 
-      <table border="2">
+      <table className="table table-hover">
         <thead>
           <tr>
             <th>Customer ID</th>
@@ -65,7 +65,7 @@ function ViewEnquiry() {
               <td>{enquiry.mobileNo}</td>
               <td>{enquiry.pancardNo}</td>
               <td>{enquiry.loanStatus}</td>
-              <td><button onClick={()=>forwardToOE(enquiry.customerId)}>FToOE</button></td>
+              <td><button className="btn btn-primary" onClick={()=>forwardToOE(enquiry.customerId)}>FToOE</button></td>
             
               
               {/* <td>{enquiry.enquiryDate}</td> */}
