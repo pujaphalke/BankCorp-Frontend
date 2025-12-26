@@ -27,7 +27,7 @@ export function LoanApplication()
   const back = () => setStep((s) => Math.max(s - 1, 0));
 
   const onSubmit = (data) => {
-    console.log(data);
+   // console.log(data);
     
     const customerData ={
         firstName:data.firstName,
@@ -240,7 +240,8 @@ export function LoanApplication()
                     disabled={step === 0} > Back </button>
 
                   {step < steps.length - 1 ? (
-                    <button type="button" className="btn btn-primary" onClick={next}>Next</button>
+                    <input type="button" className="btn btn-primary" onClick={next} value="Next"/>
+                  
                   ) : (
                     <button type="submit" className="btn btn-success">Submit</button>
                   )}

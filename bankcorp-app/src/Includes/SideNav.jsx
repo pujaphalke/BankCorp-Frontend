@@ -14,13 +14,16 @@ function SideNav() {
         CRM:[
             {label:'Add-Enquiry', to:'/dashboard/enquiry'},
             {label:'Pending-Enquiry', to:'/dashboard/viewenquiry'}
+        ],
+        OE:[
+          {label:'Cibil-Check', to:'/dashboard/cibilcheck'}
         ]
     }
 
   return (
     <div>
       <div style={{display:"flex", flexDirection:"column", padding:"50px"}}>
-        <h4>SideNav</h4>
+        {/* <h4>SideNav</h4> */}
         {
           options[usertype].map((btn,index)=> 
           <Link className='btn btn-success rounded-5 my-2' key={index} to={btn.to}>{btn.label}</Link>)

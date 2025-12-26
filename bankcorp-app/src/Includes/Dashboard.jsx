@@ -4,6 +4,7 @@ import Enquiry from '../Modules/CRM/Enquiry';
 import ViewEnquiry from '../Modules/CRM/ViewEnquiry';
 import SideNav from './SideNav';
 import { Route, Routes } from 'react-router-dom';
+import CibilCheck from '../Modules/OE/CibilCheck';
 
 function Dashboard() {
 
@@ -18,6 +19,9 @@ function Dashboard() {
      CRM:[
       {path:'/enquiry', component:<Enquiry/>},
       {path:'/viewenquiry', component:<ViewEnquiry/>}
+     ],
+     OE:[
+      {path:'/cibilcheck' , component:<CibilCheck/>}
      ]
    }
   return (
