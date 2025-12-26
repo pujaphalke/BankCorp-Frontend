@@ -10,6 +10,7 @@ export function LoanApplication()
  const steps = [
     "Personal Details",
     "Loan Details",
+    "Documents",
     "Local Address",
     "Permanent Address",
     "Dependant Info",
@@ -26,6 +27,8 @@ export function LoanApplication()
   const back = () => setStep((s) => Math.max(s - 1, 0));
 
   const onSubmit = (data) => {
+    console.log(data);
+    
     const customerData ={
         firstName:data.firstName,
         lastName:data.lastName,
@@ -36,8 +39,7 @@ export function LoanApplication()
         customerGender:data.customerGender,
         loanTenure:data.loanTenure,
         loanRequired:data.loanRequired,
-        
-   
+
     customerAddress: {
         localAddress: {
             areaName:data.areaName,
@@ -90,8 +92,16 @@ export function LoanApplication()
 };
     const  formData = new FormData();
     formData.append('loanApplicationData',JSON.stringify(customerData));
+    formData.append('addressProof',data.documents.addressProof[0]); 
+    formData.append('panCard',data.documents.panCard[0]);
+    formData.append('incomeTax',data.documents.incomeTax[0]);
+    formData.append('addharCard',data.documents.addharCard[0]);
+    formData.append('photo',data.documents.photo[0]);
+    formData.append('signature',data.documents.signature[0]);
+    formData.append('bankCheque',data.documents.bankCheque[0]);
+    formData.append('salarySlips',data.documents.salarySlips[0]);
     axios.post("http://localhost:9093/application/post",formData);
-    console.log("Submitted form", data);
+    console.log("Submitted form", formData);
     alert("Form submitted. Check console for payload");
     
   };
@@ -137,6 +147,20 @@ export function LoanApplication()
       <div className="col-md-6"><Field label="PAN" name="pancardNo" /></div>
     </div>
   );
+  
+  const Documents= () =>(
+    <div>
+      <div className="col-md-6"><Field label="Address Proof" name="documents.addressProof" type="file" /></div>
+      <div className="col-md-6"><Field label="Pancard" name="documents.panCard" type="file" /></div>
+       <div className="col-md-4"><Field label="Income Tax" name="documents.incomeTax" type="file"  /></div>
+      <div className="col-md-4"><Field label="Addhar Card" name="documents.addharCard" type="file" /></div>
+      <div className="col-md-4"><Field label="Photo" name="documents.photo"  type="file"/></div>
+      <div className="col-md-6"><Field label="Signature" name="documents.signature" type="file" /></div>
+      <div className="col-md-6"><Field label="Bank Cheque" name="documents.bankCheque" type="file" /></div>
+       <div className="col-md-6"><Field label="Salary Slip" name="documents.salarySlips" type="file" /></div>  
+    </div>
+  ) ;
+
 
   const Loan = () => (
     <div className="row">
@@ -185,10 +209,11 @@ export function LoanApplication()
     switch (step) {
       case 0: return <Personal />;
       case 1: return <Loan />;
-      case 2: return <LocalAddress />;
-      case 3: return <PermanentAddress />;
-      case 4: return <Dependant />;
-      case 5: return <Account />;
+      case 2: return <Documents />;
+      case 3: return <LocalAddress />;
+      case 4: return <PermanentAddress />;
+      case 5: return <Dependant />;
+      case 6: return <Account />;
       default: return (
         <div className="alert alert-info">
           Click Submit to send the form data.
