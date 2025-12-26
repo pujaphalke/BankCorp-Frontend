@@ -13,7 +13,7 @@ function SideNav() {
         ],
         CRM:[
             {label:'Add-Enquiry', to:'/dashboard/enquiry'},
-            {label:'View-Enquiry', to:'/dashboard/viewenquiry'}
+            {label:'Pending-Enquiry', to:'/dashboard/viewenquiry'}
         ]
     }
 
