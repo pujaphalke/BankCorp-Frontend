@@ -5,6 +5,8 @@ import ViewEnquiry from '../Modules/CRM/ViewEnquiry';
 import SideNav from './SideNav';
 import { Route, Routes } from 'react-router-dom';
 import CibilCheck from '../Modules/OE/CibilCheck';
+import { ViewApproved } from '../Modules/CRM/ViewApproved';
+import { ViewRejected } from '../Modules/CRM/ViewRejected';
 
 function Dashboard() {
 
@@ -18,7 +20,9 @@ function Dashboard() {
      ],
      CRM:[
       {path:'/enquiry', component:<Enquiry/>},
-      {path:'/viewenquiry', component:<ViewEnquiry/>}
+      {path:'/viewenquiry', component:<ViewEnquiry/>},
+      {path:'/viewapproved', component:<ViewApproved/>},
+      {path:'/viewrejected', component:<ViewRejected/>}
      ],
      OE:[
       {path:'/cibilcheck' , component:<CibilCheck/>}
