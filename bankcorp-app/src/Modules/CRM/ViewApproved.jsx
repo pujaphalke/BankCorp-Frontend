@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from "react"
+import { Link } from 'react-router-dom';
 
 export function ViewApproved()
 {
@@ -20,11 +21,12 @@ export function ViewApproved()
         viewApproved()
     },[]);
 
+    
     return (<>
            <div style={{ padding: "20px" }}>
      
 
-      <table className="table table-hover">
+      <table className="table table-hover  table-bordered rounded-3  border-dark">
         <thead>
           <tr>
             <th>Customer ID</th>
@@ -38,7 +40,7 @@ export function ViewApproved()
             <th>Mobile No</th>
             <th>PAN Card</th>
             <th>Loan Status</th>
-            {/* <th>Enquiry Date</th> */}
+            <th>Action</th> 
            
           </tr>
         </thead>
@@ -58,7 +60,7 @@ export function ViewApproved()
               <td>{loanStatus.pancardNo}</td>
               <td>{loanStatus.loanStatus}</td>
              
-              {/* <td>{enquiry.enquiryDate}</td> */}
+               <td><Link className='btn btn-primary' to={`/dashboard/loanapplication/${loanStatus.customerId}`}>Apply For Loan</Link></td> 
             </tr>
           ))}
         </tbody>

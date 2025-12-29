@@ -32,7 +32,7 @@ function ViewEnquiry() {
     <div style={{ padding: "20px" }}>
      
 
-      <table className="table table-hover">
+      <table className="table table-hover table-bordered rounded-3  border-dark">
         <thead>
           <tr>
             <th>Customer ID</th>

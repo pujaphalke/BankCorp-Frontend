@@ -1,8 +1,10 @@
 
 
  import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
+
 
 export function LoanApplication()
 {
@@ -15,19 +17,32 @@ export function LoanApplication()
     "Permanent Address",
     "Dependant Info",
     "Account Details",
+    "Guarantor Details",
     "Submit"
   ];
 
   const [step, setStep] = useState(0);
+  const{customerId}=useParams();
 
   // only register + handleSubmit (no watch / setValue)
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue, watch } = useForm();
 
   const next = () => setStep((s) => Math.min(s + 1, steps.length - 1));
   const back = () => setStep((s) => Math.max(s - 1, 0));
 
+ function getEnquiryData()
+  {
+    axios.get(`http://localhost:9091/enquiry/getbyid/${customerId}`).then(res=>{
+           for( const enquiry in res.data )
+           {
+              setValue(enquiry,res.data[enquiry]);
+           }
+    })
+  }
+  useEffect(getEnquiryData,[]);
+
   const onSubmit = (data) => {
-   // console.log(data);
+    console.log(data);
     
     const customerData ={
         firstName:data.firstName,
@@ -42,52 +57,52 @@ export function LoanApplication()
 
     customerAddress: {
         localAddress: {
-            areaName:data.areaName,
-            cityName:data.cityName,
-            district:data.district,
-            state:data.state,
-            pincode:data.pincode,
-            houseNumber:data.houseNumber,
-            streetName:data.streetName
+            areaName:data. customerAddress.localAddress.areaName,
+            cityName:data. customerAddress.localAddress.cityName,
+            district:data. customerAddress.localAddress.district,
+            state:data. customerAddress.localAddress.state,
+            pincode:data. customerAddress.localAddress.pincode,
+            houseNumber:data. customerAddress.localAddress.houseNumber,
+            streetName:data. customerAddress.localAddress.streetName
         },
 
         permanentAddress: {
-             areaName:data.areaName,
-            cityName:data.cityName,
-            district:data.district,
-            state:data.state,
-            pincode:data.pincode,
-            houseNumber:data.houseNumber,
-            streetName:data.streetName
+             areaName:data.customerAddress.permanentAddress.areaName,
+            cityName:data.customerAddress.permanentAddress.cityName,
+            district:data.customerAddress.permanentAddress.district,
+            state:data.customerAddress.permanentAddress.state,
+            pincode:data.customerAddress.permanentAddress.pincode,
+            houseNumber:data.customerAddress.permanentAddress.houseNumber,
+            streetName:data.customerAddress.permanentAddress.streetName
         }
     },
 
     dependantInfo: {
-        noOfFamilyMembers:data.noOfFamilyMembers,
-        noOfChild:data.noOfChild,
-        maritalStatus:data.maritalStatus,
-        dependantMember:data.dependantMember,
-        familyIncome:data.familyIncome
+        noOfFamilyMembers:data.dependantInfo.noOfFamilyMembers,
+        noOfChild:data.dependantInfo.noOfChild,
+        maritalStatus:data.dependantInfo.maritalStatus,
+        dependantMember:data.dependantInfo.dependantMember,
+        familyIncome:data.dependantInfo.familyIncome
     },
 
     accountDetails: {
-        accountType:data.accountType,
-        accountBalance:data.accountBalance,
-        accountHolderName:data.accountHolderName,
-        accountStatus:data.accountStatus,
-        accountNumber:data.accountNumber
+        accountType:data. accountDetails.accountType,
+        accountBalance:data. accountDetails.accountBalance,
+        accountHolderName:data. accountDetails.accountHolderName,
+        accountStatus:data. accountDetails.accountStatus,
+        accountNumber:data. accountDetails.accountNumber
     },
 
     guarantorDetails: {
-        guarantorName:data.guarantorName,
-        guarantorDateOfBirth:data.guarantorDateOfBirth,
-        guarantorRelationwithCustomer:data.guarantorRelationwithCustomer,
-        guarantorMobileNo:data.guarantorMobileNo,
-        guarantoraadharNo:data.guarantoraadharNo,
-        guarantormortgageDetails:data.guarantormortgageDetails,
-        guarantorJobDetails:data.guarantorJobDetails,
-        guarantorLocalAddress:data.guarantorLocalAddress,
-        guarantorPermanentAddress:data.guarantorPermanentAddress
+        guarantorName:data.guarantorDetails.guarantorName,
+        guarantorDateOfBirth:data.guarantorDetails.guarantorDateOfBirth,
+        guarantorRelationwithCustomer:data.guarantorDetails.guarantorRelationwithCustomer,
+        guarantorMobileNo:data.guarantorDetails.guarantorMobileNo,
+        guarantoraadharNo:data.guarantorDetails.guarantoraadharNo,
+        guarantormortgageDetails:data.guarantorDetails.guarantormortgageDetails,
+        guarantorJobDetails:data.guarantorDetails.guarantorJobDetails,
+        guarantorLocalAddress:data.guarantorDetails.guarantorLocalAddress,
+        guarantorPermanentAddress:data.guarantorDetails.guarantorPermanentAddress
     }
 };
     const  formData = new FormData();
@@ -185,6 +200,39 @@ export function LoanApplication()
   const PermanentAddress = () => <Address prefix="customerAddress.permanentAddress" />;
 
   
+  const SameAsLocalAddress = () => {
+
+        const handleChange = (e) => {
+             if (e.target.checked) {
+             const local = watch("customerAddress.localAddress");
+
+                setValue("customerAddress.permanentAddress", {
+                  houseNumber: local?.houseNumber || "",
+                  streetName: local?.streetName || "",
+                  areaName: local?.areaName || "",
+                  cityName: local?.cityName || "",
+                  district: local?.district || "",
+                  state: local?.state || "",
+                  pincode: local?.pincode || ""
+                });
+                }
+              };
+
+              return (
+                <div className="form-check mb-3">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="sameAddress"
+                    onChange={handleChange}
+                  />
+                  <label className="form-check-label" htmlFor="sameAddress">
+                    Permanent address same as local address
+                  </label>
+                </div>
+              );
+            };
+
 
   const Dependant = () => (
     <div className="row">
@@ -205,15 +253,33 @@ export function LoanApplication()
     </div>
   );
 
+   const Guarantor = () => (
+    <div className="row">
+      <div className="col-md-6"><Field label="Guarantor Name" name="guarantorDetails.guarantorName" /></div>
+      <div className="col-md-6"><Field label="Guarantor DOB" name="guarantorDetails.guarantorDateOfBirth" /></div>
+      <div className="col-md-6"><Field label="Guarantor Ralation with Customer" name="guarantorDetails.guarantorRelationwithCustomer" /></div>
+      <div className="col-md-6"><Field label="Guarantor MobileNo" name="guarantorDetails.guarantorMobileNo" type="text" inputMode="numeric" /></div>
+      <div className="col-md-6"><Field label="Guarantor AadharNo" name="guarantorDetails.guarantoraadharNo" /></div>
+      <div className="col-md-6"><Field label="Guarantor Mortgage Details" name="guarantorDetails.guarantormortgageDetails" /></div>
+      <div className="col-md-6"><Field label="Guarantor Job Details" name="guarantorDetails.guarantorJobDetails" /></div>
+      <div className="col-md-6"><Field label="Guarantor Local Address" name="guarantorDetails.guarantorLocalAddress" /></div>
+      <div className="col-md-6"><Field label="Guarantor Permanent Address" name="guarantorDetails.guarantorPermanentAddress" type="text" inputMode="numeric" /></div>
+    </div>
+  );
+
   const renderStep = () => {
     switch (step) {
       case 0: return <Personal />;
       case 1: return <Loan />;
       case 2: return <Documents />;
       case 3: return <LocalAddress />;
-      case 4: return <PermanentAddress />;
+      case 4: return <>
+                    <SameAsLocalAddress/>
+                    <PermanentAddress />;
+                    </>
       case 5: return <Dependant />;
       case 6: return <Account />;
+      case 7: return <Guarantor/>
       default: return (
         <div className="alert alert-info">
           Click Submit to send the form data.
@@ -233,6 +299,9 @@ export function LoanApplication()
               <form onSubmit={handleSubmit(onSubmit)}>
                 <StepHeader />
                 {renderStep()}
+                
+             
+               
 
                 <div className="d-flex justify-content-between mt-3">
                   <button type="button" className="btn btn-secondary"
