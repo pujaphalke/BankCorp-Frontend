@@ -4,6 +4,12 @@ import Enquiry from '../Modules/CRM/Enquiry';
 import ViewEnquiry from '../Modules/CRM/ViewEnquiry';
 import SideNav from './SideNav';
 import { Route, Routes } from 'react-router-dom';
+import CibilCheck from '../Modules/OE/CibilCheck';
+import { ViewApproved } from '../Modules/CRM/ViewApproved';
+import { ViewRejected } from '../Modules/CRM/ViewRejected';
+import { LoanApplication } from '../Modules/CRM/LoanAppliction';
+import ViewSubmitted from '../Modules/OE/ViewSubmitted';
+import ViewLoanApplicationDetails from '../Modules/OE/ViewLoanApplicationDetails';
 
 function Dashboard() {
 
@@ -17,7 +23,15 @@ function Dashboard() {
      ],
      CRM:[
       {path:'/enquiry', component:<Enquiry/>},
-      {path:'/viewenquiry', component:<ViewEnquiry/>}
+      {path:'/viewenquiry', component:<ViewEnquiry/>},
+      {path:'/viewapproved', component:<ViewApproved/>},
+      {path:'/viewrejected', component:<ViewRejected/>},
+      {path:'/loanapplication/:customerId', component:<LoanApplication/>}
+     ],
+     OE:[
+      {path:'/cibilcheck' , component:<CibilCheck/>},
+      {path:'/viewsubmitted', component:<ViewSubmitted/>},
+      {path:'/viewloanapplicationdetails/:customerId', component:<ViewLoanApplicationDetails/>}
      ]
    }
   return (
@@ -27,12 +41,12 @@ function Dashboard() {
         <span className="navbar-brand mb-0 h5"><ProfileNav></ProfileNav></span>
       </nav>
 
-      <div className="d-flex" style={{ height: "150vh" }}>
-          <div className="border  bg-secondary-subtle" style={{ width: "25%" }}>
+      <div className="d-flex min-vh-100 w-100">
+          <div className="border  bg-secondary-subtle" style={{ width: "20%" , minHeight:'100vh'}}>
           <SideNav />
       </div>
 
-     <div className=" w-75  bg-secondary bg-opacity-25 p-3">
+     <div className="bg-secondary bg-opacity-25 p-3" style={{ width: "80%" , minHeight:'100vh'}}>
       <Routes>
        {appRoute[usertype].map((mapping, index) => (
          <Route
