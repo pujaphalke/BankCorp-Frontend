@@ -19,7 +19,8 @@ function SideNav() {
 
         ],
         OE:[
-          {label:'Cibil-Check', to:'/dashboard/cibilcheck'}
+          {label:'Cibil-Check', to:'/dashboard/cibilcheck'},
+          {label:'View-Submitted', to:'/dashboard/viewsubmitted'}
         ]
     }
 

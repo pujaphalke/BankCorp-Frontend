@@ -8,6 +8,8 @@ import CibilCheck from '../Modules/OE/CibilCheck';
 import { ViewApproved } from '../Modules/CRM/ViewApproved';
 import { ViewRejected } from '../Modules/CRM/ViewRejected';
 import { LoanApplication } from '../Modules/CRM/LoanAppliction';
+import ViewSubmitted from '../Modules/OE/ViewSubmitted';
+import ViewLoanApplicationDetails from '../Modules/OE/ViewLoanApplicationDetails';
 
 function Dashboard() {
 
@@ -27,7 +29,9 @@ function Dashboard() {
       {path:'/loanapplication/:customerId', component:<LoanApplication/>}
      ],
      OE:[
-      {path:'/cibilcheck' , component:<CibilCheck/>}
+      {path:'/cibilcheck' , component:<CibilCheck/>},
+      {path:'/viewsubmitted', component:<ViewSubmitted/>},
+      {path:'/viewloanapplicationdetails/:customerId', component:<ViewLoanApplicationDetails/>}
      ]
    }
   return (
