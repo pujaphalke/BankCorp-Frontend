@@ -78,12 +78,9 @@ function ViewLoanApplicationDetails() {
             console.log(response.data);
             
            setLoanDetails(response.data);
-           
-
-
-        })
+           })
     }
-  //  console.log("Address Proof:", loanDetails?.documents?.addressProof);
+  
     useEffect(showLoanApplication,[]);
 
   return (
