@@ -92,7 +92,7 @@ export function LoanApplication()
         accountStatus:data. accountDetails.accountStatus,
         accountNumber:data. accountDetails.accountNumber
     },
-
+  
     guarantorDetails: {
         guarantorName:data.guarantorDetails.guarantorName,
         guarantorDateOfBirth:data.guarantorDetails.guarantorDateOfBirth,
@@ -239,6 +239,7 @@ export function LoanApplication()
       <div className="col-md-6"><Field label="Family Members" name="dependantInfo.noOfFamilyMembers" type="text" inputMode="numeric" /></div>
       <div className="col-md-6"><Field label="Children" name="dependantInfo.noOfChild" type="text" inputMode="numeric" /></div>
       <div className="col-md-6"><Field label="Marital Status" name="dependantInfo.maritalStatus" /></div>
+      <div className="col-md-6"><Field label="Dependant Member" name="dependantInfo.dependantMember" /></div>
       <div className="col-md-6"><Field label="Family Income" name="dependantInfo.familyIncome" type="text" inputMode="numeric" /></div>
     </div>
   );
