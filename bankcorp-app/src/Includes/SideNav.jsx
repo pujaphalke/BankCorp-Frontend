@@ -21,6 +21,9 @@ function SideNav() {
         OE:[
           {label:'Cibil-Check', to:'/dashboard/cibilcheck'},
           {label:'View-Submitted', to:'/dashboard/viewsubmitted'}
+        ],
+        CM:[
+          {label:'View-Verified',to:'/dashboard/viewverified'}
         ]
     }
 

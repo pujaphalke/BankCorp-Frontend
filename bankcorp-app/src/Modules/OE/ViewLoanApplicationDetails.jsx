@@ -1,16 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-<<<<<<< HEAD
 import { useNavigate, useParams } from 'react-router-dom';
 
 function ViewLoanApplicationDetails() {
      const navigate =useNavigate();
-=======
-import { useParams } from 'react-router-dom';
-
-function ViewLoanApplicationDetails() {
-
->>>>>>> 96ad86b06a98b98061459477cdf7d6c1ec6f0e8b
      const customerData ={
        
     customerAddress: {
@@ -85,21 +78,17 @@ function ViewLoanApplicationDetails() {
             console.log(response.data);
             
            setLoanDetails(response.data);
-           
-
-
-        })
+           })
     }
-  //  console.log("Address Proof:", loanDetails?.documents?.addressProof);
+  
     useEffect(showLoanApplication,[]);
 
-<<<<<<< HEAD
     function verifyDocuments()
     {
       axios.get(`http://localhost:9093/application/docVerify/${customerId}`)
       .then(response=>{
         console.log(response.data);
-        navigate("/viewloanapplicationdetails");
+        navigate('/dashboard/viewsubmitted');
       })
     }
   function rejectDocuments()
@@ -107,12 +96,10 @@ function ViewLoanApplicationDetails() {
         axios.get(`http://localhost:9093/application/docReject/${customerId}`)
         .then(response=>{
           console.log(response.data);
-         
+          navigate('/dashboard/viewsubmitted');
         })
       }
 
-=======
->>>>>>> 96ad86b06a98b98061459477cdf7d6c1ec6f0e8b
   return (
     <>
       <div className='py-2 px-4'>
@@ -338,13 +325,8 @@ function ViewLoanApplicationDetails() {
          </thead>
         <tbody>
          <tr>
-<<<<<<< HEAD
               <td><button className='btn btn-primary' onClick={()=>verifyDocuments()}>Verify Documents</button></td>
               <td><button className='btn btn-primary' onClick={()=>rejectDocuments()}>Reject Documents</button></td>
-=======
-              <td><button className='btn btn-primary'>Verify Documents</button></td>
-              <td><button className='btn btn-primary'>Reject Documents</button></td>
->>>>>>> 96ad86b06a98b98061459477cdf7d6c1ec6f0e8b
              
          </tr> 
         </tbody>

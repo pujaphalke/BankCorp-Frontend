@@ -1,29 +1,22 @@
 import axios from 'axios'
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
-export function ViewApproved()
-{
+function ViewDocVerified() {
 
-    const [viewLoanStatus,setViewLoanStatus]= useState([]);
+const[verified, setVerified]=useState([]);
 
-    function viewApproved()
+    function showVerified()
     {
-        axios.get(`http://localhost:9091/enquiry/getByLoanStatus/CibilApproved`).then((response)=>{
-            setViewLoanStatus(response.data);
-        }).catch((error)=>{
-           console.log(error);
-           
-        });
+       axios.get("http://localhost:9093/application/getbyloanstatus/DocVerified")
+       .then(response=>{
+       setVerified(response.data);
+       })
     }
-
-    useEffect(()=>{
-        viewApproved()
-    },[]);
-
-    
-    return (<>
-      <div style={{ padding: "20px" }}>
+useEffect(showVerified,[]);
+  return (
+    <>
+       <div style={{ padding: "20px" }}>
       <table className="table table-hover  table-bordered rounded-3  border-dark">
         <thead>
           <tr>
@@ -39,12 +32,10 @@ export function ViewApproved()
             <th>PAN Card</th>
             <th>Loan Status</th>
             <th>Action</th> 
-           
-          </tr>
+           </tr>
         </thead>
-
         <tbody>
-          {viewLoanStatus.map((loanStatus, index) => (
+          {verified.map((loanStatus, index) => (
             <tr key={index}>
               <td>{loanStatus.customerId}</td>
               <td>{loanStatus.firstName}</td>
@@ -57,12 +48,14 @@ export function ViewApproved()
               <td>{loanStatus.mobileNo}</td>
               <td>{loanStatus.pancardNo}</td>
               <td>{loanStatus.loanStatus}</td>
-             
-               <td><Link className='btn btn-primary' to={`/dashboard/loanapplication/${loanStatus.customerId}`}>Apply For Loan</Link></td> 
-            </tr>
+              <td><Link className='btn btn-primary' to={`/dashboard/sanctionletter/${loanStatus.customerId}`}>Sanction Letter</Link></td>
+               </tr>
           ))}
         </tbody>
       </table>
     </div>
-           </>)
+    </>
+  )
 }
+
+export default ViewDocVerified

@@ -3,7 +3,7 @@
  import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 export function LoanApplication()
@@ -23,6 +23,7 @@ export function LoanApplication()
 
   const [step, setStep] = useState(0);
   const{customerId}=useParams();
+  const navigate =useNavigate();
 
   // only register + handleSubmit (no watch / setValue)
   const { register, handleSubmit, setValue, watch } = useForm();
@@ -118,6 +119,7 @@ export function LoanApplication()
     axios.post("http://localhost:9093/application/post",formData);
     console.log("Submitted form", formData);
     alert("Form submitted. Check console for payload");
+    navigate('/dashboard/viewapproved');
     
   };
 
