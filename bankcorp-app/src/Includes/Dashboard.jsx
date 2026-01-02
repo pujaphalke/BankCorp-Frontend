@@ -10,6 +10,8 @@ import { ViewRejected } from '../Modules/CRM/ViewRejected';
 import { LoanApplication } from '../Modules/CRM/LoanAppliction';
 import ViewSubmitted from '../Modules/OE/ViewSubmitted';
 import ViewLoanApplicationDetails from '../Modules/OE/ViewLoanApplicationDetails';
+import ViewDocVerified from '../Modules/CM/ViewDocVerified';
+import SanctionLetter from '../Modules/CM/SanctionLetter';
 
 function Dashboard() {
 
@@ -32,6 +34,10 @@ function Dashboard() {
       {path:'/cibilcheck' , component:<CibilCheck/>},
       {path:'/viewsubmitted', component:<ViewSubmitted/>},
       {path:'/viewloanapplicationdetails/:customerId', component:<ViewLoanApplicationDetails/>}
+     ],
+     CM:[
+      {path:'/viewverified' , component:<ViewDocVerified/>},
+      {path:'/sanctionletter/:customerId', component:<SanctionLetter/>}
      ]
    }
   return (
