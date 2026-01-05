@@ -62,6 +62,7 @@ function Login() {
                           <option>CRM</option>
                           <option>OE</option>
                           <option>CM</option>
+                          <option>CUSTOMER</option>
                           <option>ACCOUNTHEAD</option>
                     </select>
                   </div>

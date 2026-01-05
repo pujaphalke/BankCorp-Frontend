@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
-
+import { useForm } from 'react-hook-form';
+import img from '/dis.jpg'
 function LoanDisbursement() {
 
+    const {register,handleSubmit,reset}=useForm();
     function loanDisbursementDetails()
     {
-
+    axios.put("http://localhost:9093/application/updateDisbursementData/{customerId}");
     }
     useEffect(loanDisbursementDetails,[]);
   return (
@@ -29,27 +31,27 @@ function LoanDisbursement() {
             
                               <div className="d-flex align-items-center mb-3 pb-1">
                                 <i className="fas fa-cubes fa-2x me-3" style={{color: '#ff6219'}}></i>
-                                <span className="h1 fw-bold mb-0">Sanction Letter</span>
+                                <span className="h1 fw-bold mb-0">Loan Disbursment</span>
                               </div>
             
                               
                               <div data-mdb-input-init className="form-outline mb-2">
-                                 <label className="form-label" htmlFor="fname">First Name</label>
-                                <input type="text" id="fname"{...register("firstName")} className="form-control form-control" />
+                                 <label className="form-label" htmlFor="apt">Amount Pay Type</label>
+                                <input type="text" id="apt"{...register("amountPayType")} className="form-control form-control" />
                                </div>
                                <div data-mdb-input-init className="form-outline mb-2">
-                                <label className="form-label" htmlFor="lname">Last Name</label>
-                                <input type="text" id="lname" {...register("lastName")} className="form-control form-control" />
+                                <label className="form-label" htmlFor="bname">Bank Name</label>
+                                <input type="text" id="bname" {...register("bankName")} className="form-control form-control" />
                                 </div>
                               
                               <div data-mdb-input-init className="form-outline mb-2">
-                                 <label className="form-label" htmlFor="mno">Mobile Number</label>
-                                <input type="text" id="mno"{...register("mobileNo")} className="form-control form-control" />
+                                 <label className="form-label" htmlFor="ano">Account Number</label>
+                                <input type="text" id="ano"{...register("accountNumber")} className="form-control form-control" />
                                </div> 
             
                               <div data-mdb-input-init className="form-outline mb-2">
-                                <label className="form-label" htmlFor="amount">Loan Amount Sanctioned</label>
-                                <input type="text" id="amount"{...register("loanAmountSanctioned", { valueAsNumber: true })} className="form-control form-control" />
+                                <label className="form-label" htmlFor="amount">Transfer Amount </label>
+                                <input type="text" id="amount"{...register("transferAmount", { valueAsNumber: true })} className="form-control form-control" />
                                 </div> 
                              
                                 {/* <div data-mdb-input-init className="form-outline mb-2">
@@ -58,19 +60,19 @@ function LoanDisbursement() {
                                  </div> */}
                              
                                <div data-mdb-input-init className="form-outline mb-2">
-                                <label className="form-label" htmlFor="interest">Rate Of Interest</label>
-                                <input type="number" id="interest"{...register("rateOfInterest",{ valueAsNumber: true })} className="form-control form-control" />
+                                <label className="form-label" htmlFor="atype">Account Type</label>
+                                <input type="text" id="atype"{...register("accountType",{ valueAsNumber: true })} className="form-control form-control" />
                                 </div> 
       
                                  <div data-mdb-input-init className="form-outline mb-2">
-                                <label className="form-label" htmlFor="tenure">Loan Tenure</label>
-                                <input type="number" id="tenure"{...register("loanTenure", { valueAsNumber: true })} className="form-control form-control" />
+                                <label className="form-label" htmlFor="pstatus">Payment Status</label>
+                                <input type="text" id="pstatus"{...register("paymentStatus", { valueAsNumber: true })} className="form-control form-control" />
                               </div>  
                               
                               
                               <div data-mdb-input-init className="form-outline mb-2">
-                                <label className="form-label" htmlFor="mEmi">Monthly EMI Amount</label>
-                                <input type="text" id="mEmi"{...register("monthlyEmiAmount")} className="form-control form-control" readOnly />
+                                <label className="form-label" htmlFor="icode">IFSC Code</label>
+                                <input type="text" id="icode"{...register("ifsccode")} className="form-control form-control" readOnly />
                               </div>  
                               
                                

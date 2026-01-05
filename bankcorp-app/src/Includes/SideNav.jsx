@@ -30,8 +30,8 @@ function SideNav() {
          
         ],
         ACCOUNTHEAD:[
-          {label:'View-SanctionAccepted',to:'/dashboard/viewsanctionaccepted'},
-          {label:'loan-Disbursement',to:'/dashboard/loandisbursement'}
+          {label:'View-SanctionAccepted',to:'/dashboard/viewsanctionaccepted'}
+          // {label:'loan-Disbursement',to:'/dashboard/loandisbursement'}
         ]
     }
 
