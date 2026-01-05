@@ -11,6 +11,9 @@ function SideNav() {
             {},
             {}
         ],
+        CUSTOMER:[
+          {label:'View-Sanction', to:'/dashboard/viewSanction'}
+        ],
         CRM:[
             {label:'Add-Enquiry', to:'/dashboard/enquiry'},
             {label:'Pending-Enquiry', to:'/dashboard/viewenquiry'},
@@ -20,10 +23,7 @@ function SideNav() {
         ],
         OE:[
           {label:'Cibil-Check', to:'/dashboard/cibilcheck'},
-          {label:'View-Submitted', to:'/dashboard/viewsubmitted'}
-        ],
-        CM:[
-          {label:'View-Verified',to:'/dashboard/viewverified'}
+          {label:'ViewSubmitted', to:'/dashboard/ViewSubmitted'}
         ]
     }
 

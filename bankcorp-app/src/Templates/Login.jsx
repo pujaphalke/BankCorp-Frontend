@@ -10,10 +10,17 @@ function Login() {
   function loginCheck(data)
   {
    localStorage.setItem('user', JSON.stringify(data));
+   
    console.log("Login: "+data.usertype);
    alert("loginCheck function call....!")
    console.log(data);
-   navigate('/dashboard');
+   if(data.usertype === "CUSTOMER")
+   { 
+     navigate('/customerdashboard');
+   }else{
+     navigate('/dashboard');
+   }
+  
   }
 
   return (
@@ -32,10 +39,10 @@ function Login() {
                   
                   {/* Email */}
                   <div className="mb-3">
-                    <label className="form-label">Username</label>
+                    <label className="form-label">UserId</label>
                     <input
-                      type="text"className="form-control"placeholder="username"
-                      {...register("username", { required: true })}
+                      type="text"className="form-control"placeholder="UID"
+                      {...register("userId", { required: true })}
                     />
                   </div>
 
@@ -55,6 +62,7 @@ function Login() {
                           <option>CRM</option>
                           <option>OE</option>
                           <option>CM</option>
+                           <option>CUSTOMER</option>
                     </select>
                   </div>
 
