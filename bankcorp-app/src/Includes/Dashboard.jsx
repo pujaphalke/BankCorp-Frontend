@@ -10,6 +10,12 @@ import { ViewRejected } from '../Modules/CRM/ViewRejected';
 import { LoanApplication } from '../Modules/CRM/LoanAppliction';
 import ViewSanction from '../Modules/Customer/ViewSanction';
 import ViewSubmitted from '../Modules/OE/ViewSubmitted';
+import ViewLoanApplicationDetails from '../Modules/OE/ViewLoanApplicationDetails';
+import ViewDocVerified from '../Modules/CM/ViewDocVerified';
+import SanctionLetter from '../Modules/CM/SanctionLetter';
+import ViewSanctionAccepted from '../Modules/ACCOUNTHEAD/ViewSanctionAccepted';
+import LoanDisbursement from '../Modules/ACCOUNTHEAD/LoanDisbursement';
+
 function Dashboard() {
 
    const userJson=localStorage.getItem('user');
@@ -32,8 +38,17 @@ function Dashboard() {
      ],
      OE:[
       {path:'/cibilcheck' , component:<CibilCheck/>},
-      {path:'/ViewSubmitted', component:<ViewSubmitted/>}
-     ]
+      {path:'/viewsubmitted', component:<ViewSubmitted/>},
+      {path:'/viewloanapplicationdetails/:customerId', component:<ViewLoanApplicationDetails/>}
+     ],
+     CM:[
+      {path:'/viewverified' , component:<ViewDocVerified/>},
+      {path:'/sanctionletter/:customerId', component:<SanctionLetter/>}
+     ],
+     ACCOUNTHEAD:[
+          {path:'/viewsanctionaccepted',component:<ViewSanctionAccepted/>},
+          {path:'/loandisbursement',component:<LoanDisbursement/>}
+        ]
    }
   return (
     <div>

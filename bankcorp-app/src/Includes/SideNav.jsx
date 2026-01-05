@@ -23,7 +23,15 @@ function SideNav() {
         ],
         OE:[
           {label:'Cibil-Check', to:'/dashboard/cibilcheck'},
-          {label:'ViewSubmitted', to:'/dashboard/ViewSubmitted'}
+          {label:'View-Submitted', to:'/dashboard/viewsubmitted'}
+        ],
+        CM:[
+          {label:'View-Verified',to:'/dashboard/viewverified'}
+         
+        ],
+        ACCOUNTHEAD:[
+          {label:'View-SanctionAccepted',to:'/dashboard/viewsanctionaccepted'},
+          {label:'loan-Disbursement',to:'/dashboard/loandisbursement'}
         ]
     }
 
