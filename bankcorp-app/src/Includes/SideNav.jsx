@@ -11,6 +11,9 @@ function SideNav() {
             {},
             {}
         ],
+        CUSTOMER:[
+          {label:'View-Sanction', to:'/dashboard/viewSanction'}
+        ],
         CRM:[
             {label:'Add-Enquiry', to:'/dashboard/enquiry'},
             {label:'Pending-Enquiry', to:'/dashboard/viewenquiry'},

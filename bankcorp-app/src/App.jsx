@@ -14,6 +14,7 @@ import Login from './Templates/Login'
 import Dashboard from './Includes/Dashboard'
 import { LoanApplication } from './Modules/CRM/LoanAppliction'
 import Enquiry from './Modules/CRM/Enquiry'
+import CustomerDashboard from './Includes/CustomerDashboard'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -30,6 +31,7 @@ function App() {
         <Route path='emicheck' element={<EmiCalculator/>}></Route>
         <Route path='login' element={<Login></Login>}></Route>
         <Route path='dashboard/*' element={<Dashboard/>}></Route>
+        <Route path='customerdashboard/*' element={<CustomerDashboard />}></Route>
         <Route path='contact' element={<Contact></Contact>}></Route>
         <Route path='about'element={<About/>}></Route>
         <Route path='loanapplication' element={<LoanApplication/>}></Route>

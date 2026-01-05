@@ -13,7 +13,7 @@ const[verified, setVerified]=useState([]);
        setVerified(response.data);
        })
     }
-useEffect(showVerified,[]);
+useEffect(()=>{showVerified},[]);
   return (
     <>
        <div style={{ padding: "20px" }}>
