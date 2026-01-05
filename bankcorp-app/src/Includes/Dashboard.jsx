@@ -12,6 +12,8 @@ import ViewSubmitted from '../Modules/OE/ViewSubmitted';
 import ViewLoanApplicationDetails from '../Modules/OE/ViewLoanApplicationDetails';
 import ViewDocVerified from '../Modules/CM/ViewDocVerified';
 import SanctionLetter from '../Modules/CM/SanctionLetter';
+import ViewSanctionAccepted from '../Modules/ACCOUNTHEAD/ViewSanctionAccepted';
+import LoanDisbursement from '../Modules/ACCOUNTHEAD/LoanDisbursement';
 
 function Dashboard() {
 
@@ -38,7 +40,11 @@ function Dashboard() {
      CM:[
       {path:'/viewverified' , component:<ViewDocVerified/>},
       {path:'/sanctionletter/:customerId', component:<SanctionLetter/>}
-     ]
+     ],
+     ACCOUNTHEAD:[
+          {path:'/viewsanctionaccepted',component:<ViewSanctionAccepted/>},
+          {path:'/loandisbursement',component:<LoanDisbursement/>}
+        ]
    }
   return (
     <div>
