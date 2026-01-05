@@ -19,9 +19,7 @@ function ViewSubmitted() {
   return (
     <>
        <div style={{ padding: "20px" }}>
-     
-
-      <table className="table table-hover  table-bordered rounded-3  border-dark text-center">
+     <table className="table table-hover  table-bordered rounded-3  border-dark text-center">
         <thead>
           <tr>
             <th>Customer ID</th>
