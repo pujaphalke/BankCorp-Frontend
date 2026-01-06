@@ -47,7 +47,7 @@ function Dashboard() {
      ],
      ACCOUNTHEAD:[
           {path:'/viewsanctionaccepted',component:<ViewSanctionAccepted/>},
-          {path:'/loandisbursement',component:<LoanDisbursement/>}
+          {path:'/loandisbursement/:customerId',component:<LoanDisbursement/>}
         ]
    }
   return (
